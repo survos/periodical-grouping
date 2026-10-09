@@ -1,10 +1,10 @@
 # Periodical grouping
 
 One deterministic grouping implementation for Harvest production and Ink previews.
-PHP performs page layout analysis; Node runs the exact JavaScript used in the browser.
+PHP performs both page layout analysis and grouping. Ink renders server-prepared groups.
 No HTTP, AI, database, Folio reader, or application kernel is required.
 
-Requires PHP 8.4+, mbstring, and Node 22.12+ (synchronous ESM loading).
+Requires PHP 8.4+ and mbstring. No external runtime or subprocess is used.
 
 ```php
 use Survos\PeriodicalGrouping\GroupingEngine;
@@ -50,10 +50,11 @@ After a Composer install:
 vendor/bin/group.php < issue-input.json > proposal.json
 ```
 
-The low-level `bin/prepare.cjs` accepts already analyzed pages and retains the old
-Ink preparation contract. Use `GroupingEngine`/the PHP CLI for raw page inputs.
-Import `assets/grouping.js` for browser column previews and stored rendering;
-map that directory with AssetMapper in Symfony consumers. It has no DOM dependency.
+For an already analyzed page, `PageGrouper::prepare($issueId, $page, $mode)`
+supports `combined`, `saved` and `proposed` modes. Ink uses this PHP API to prepare
+all preview modes, and its existing Stimulus components render the groups. This
+package ships no JavaScript library or browser assets. A reusable interactive viewer
+would belong in a separate Symfony UX bundle.
 
 ## Verification
 
@@ -70,5 +71,5 @@ The Cordele fixture contains historical OCR and source IDs; it is not corrected 
 The package lives in `mono/lib/periodical-grouping` and is registered in the mono
 split workflow. During local development, applications install the dependency
 then use `../mono/link .` as usual. Harvest adapts existing Folio entities into
-this contract; Ink uses the same package for previews. Neither application owns
+this contract; Ink uses the same PHP package for previews. Neither application owns
 a second implementation of these grouping rules.

@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace Survos\PeriodicalGrouping;
 
-use Symfony\Component\Process\Process;
-
 /** Offline producer. Persistence, publication, search and article eligibility belong to callers. */
 final class GroupingEngine
 {
-    public function __construct(private readonly string $node = 'node', private readonly float $timeout = 120.0) {}
-
     /**
      * Each page supplies pageIndex, width, height, blocks and optional articles/review/measuredBottom.
      * Blocks use original-pixel box [x,y,width,height], stable id and unmodified OCR text.
@@ -61,11 +57,9 @@ final class GroupingEngine
             'algorithmHash' => self::algorithmHash(), 'pages' => $pages];
         // Covers reviews, measured geometry and legacy memberships as well as source OCR.
         $prepared['inputHash'] = hash('sha256', json_encode($prepared, JSON_THROW_ON_ERROR));
-        $process = new Process([$this->node, dirname(__DIR__).'/bin/prepare.cjs']);
-        $process->setInput(json_encode($prepared, JSON_THROW_ON_ERROR));
-        $process->setTimeout($this->timeout);
-        $process->mustRun();
-        $result = json_decode($process->getOutput(), true, flags: JSON_THROW_ON_ERROR);
+        $result = ['schemaVersion' => 1, 'issueId' => $input['issueId'], 'sourceHash' => $input['sourceHash'],
+            'algorithmHash' => $prepared['algorithmHash'],
+            'pages' => array_map(static fn(array $page): array => PageGrouper::prepare($input['issueId'], $page), $pages)];
         $result['inputHash'] = $prepared['inputHash'];
         if (isset($input['folioCode'])) { $result['folioCode'] = $input['folioCode']; }
         return $result;
@@ -76,7 +70,7 @@ final class GroupingEngine
     {
         $root = dirname(__DIR__);
         return hash('sha256', implode('', array_map(static fn(string $path): string => file_get_contents($root.'/'.$path), [
-            'src/GroupingEngine.php', 'src/LayoutAnalyzer.php', 'assets/grouping.js', 'bin/prepare.cjs', 'resources/reviewed-profiles.json',
+            'src/GroupingEngine.php', 'src/LayoutAnalyzer.php', 'src/ColumnGrouper.php', 'src/PageGrouper.php', 'resources/reviewed-profiles.json',
         ])));
     }
 

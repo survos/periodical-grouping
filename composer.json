@@ -5,8 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "ext-mbstring": "*",
-        "symfony/process": "^7.3 || ^8.0"
+        "ext-mbstring": "*"
     },
     "autoload": {
         "psr-4": {
@@ -17,8 +16,7 @@
         "test": [
             "@php tests/layout.php",
             "@php tests/engine.php",
-            "node tests/grouping.cjs",
-            "node tests/prepare.cjs"
+            "@php tests/grouping.php"
         ]
     },
     "bin": [

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "TB87",
+    "text": "CENTENNIAL BIRTHDAY",
+    "box": [
+      4007,
+      2963,
+      869,
+      128
+    ],
+    "fontSize": 22
+  },
+  {
+    "id": "TB88",
+    "text": "Guthrie County's Oldest Citizen\nCentenarian Receives A\nBig Ovation.",
+    "box": [
+      4007,
+      3135,
+      741,
+      184
+    ],
+    "fontSize": 12
+  },
+  {
+    "id": "TB99",
+    "text": "And",
+    "box": [
+      4787,
+      3135,
+      87,
+      73
+    ],
+    "fontSize": 12
+  },
+  {
+    "id": "TB100",
+    "text": "Last Saturday the oitizens of Guthrie\nCenter almost to a unit turned out to\nbestow their congratulations on Mr.\nMartholomew Dunley who celebrated\nhis one hundredth birthday anniversary\non that day. All business housss\nwere closed on proclamation of Mayor\nHolsman and all did honor to the occasion.\nGuthrie County will soon\nhave another Centenarian, Mr. Lewis\nof Menlo whose next birthday we are\ninformed will be his one hundredth on\nwhich occasion Menlo will be right to\nthe front in observing.",
+    "box": [
+      4011,
+      3352,
+      877,
+      772
+    ],
+    "fontSize": 9
+  }
+]
