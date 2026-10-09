@@ -20,9 +20,10 @@ check($first === $engine->prepare($input), 'Repeated preparation must be identic
 check($first['pages'][0]['groups'][0]['blockIds'] === ['h','b'], 'Headline and body must group');
 check($first['pages'][0]['unassignedBlockIds'] === ['u'], 'Loose source text must survive');
 $decorated = $input;
+$decorated['storageContext'] = ['collectionId'=>'other','database'=>'example'];
 $decorated['pages'][0]['blocks'][0]['crop'] = 'https://example.invalid/crop';
 $decorated['pages'][0]['analysis'] = ['mastheadBlockIds' => ['h','b']];
-check($first === $engine->prepare($decorated), 'UI metadata and cached analysis cannot change the result');
+check($first === $engine->prepare($decorated), 'Storage context, UI metadata and cached analysis cannot change the result');
 $reviewed = $input;
 $reviewed['pages'][0]['review'] = ['pageWidth'=>1000,'pageHeight'=>2000,'basis'=>'reviewed','mastheadBlockIds'=>['h']];
 $second = $engine->prepare($reviewed);

@@ -10,7 +10,7 @@ final class GroupingEngine
     /**
      * Each page supplies pageIndex, width, height, blocks and optional articles/review/measuredBottom.
      * Blocks use original-pixel box [x,y,width,height], stable id and unmodified OCR text.
-     * The caller hashes the retained source layouts, before any display transformations.
+     * The caller hashes the retained source layouts, before any display transformations. Storage routing is owned by the caller.
      */
     public function prepare(array $input): array
     {
@@ -61,7 +61,6 @@ final class GroupingEngine
             'algorithmHash' => $prepared['algorithmHash'],
             'pages' => array_map(static fn(array $page): array => PageGrouper::prepare($input['issueId'], $page), $pages)];
         $result['inputHash'] = $prepared['inputHash'];
-        if (isset($input['folioCode'])) { $result['folioCode'] = $input['folioCode']; }
         return $result;
     }
 

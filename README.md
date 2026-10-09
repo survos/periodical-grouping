@@ -11,11 +11,16 @@ use Survos\PeriodicalGrouping\GroupingEngine;
 
 $proposal = (new GroupingEngine())->prepare([
     'issueId' => $issueId,
-    'folioCode' => $folioCode, // optional identity passed through
     'sourceHash' => $sourceHash, // SHA-256 of retained source layouts, computed by producer
     'pages' => $pages,
 ]);
 ```
+
+The library does not know where an issue is stored. Collection names, database
+keys, tenant IDs and storage paths belong to the calling application's envelope;
+they are not grouping inputs and are not copied into the result. `issueId` is an
+opaque identity used to generate stable group IDs. The caller is responsible for
+namespacing it when combining results from multiple collections.
 
 Each page has `pageIndex` (zero-based), original-pixel `width` and `height`, and
 `blocks`: `{id, text, box: [x,y,width,height], fontSize?, paragraphStarts?}`.
@@ -35,7 +40,7 @@ there is no cross-page continuation stitching.
 `algorithmHash` identifies package rules and built-in profiles. `inputHash`
 also covers source, optional reviews, measured geometry and existing memberships;
 UI crop URLs and cached display analysis are excluded. Consumers must still check
-`sourceHash` against their current Folio before writing a proposal.
+`sourceHash` against their current source before writing a proposal.
 
 A group is not automatically an article: headline/body eligibility and whether
 search uses the first body block are downstream policies. Persistence, revision
