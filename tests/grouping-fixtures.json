@@ -1,0 +1,367 @@
+[
+  {
+    "name": "audubon page 1 TB114",
+    "blocks": [
+      {
+        "id": "TB114",
+        "text": "MRS. F.R. MCLAUGHLIN",
+        "box": [
+          4910,
+          1246,
+          857,
+          128
+        ],
+        "fontSize": 21,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB115",
+        "text": "Died At Her Home In Lincoln Township.\nLoved And Respected\nBy All Who Knew Her.",
+        "box": [
+          4912,
+          1419,
+          865,
+          184
+        ],
+        "fontSize": 12,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB116",
+        "text": "Miss Cora Evans was born in Knox\nCounty, Illinois and was married to\nMr. F. R. McLaughlin in 1885. Soon\nafter their marriage they collected\ntheir belongings together and started\nwest and located on their present\nfarm. They rented this farm tor four\nyears of L. C. Whipple when they finally\nbought it. By judicious-management\nthey have brought this farm\nup to the very highest state of cultivation\nand have raised their family of\nthree sons and four daughters. Here,\nwhen this country was new and household\nduties were numerous Mrs. McLaughlin\ncould often be seen going or\ncoming from tbe sick bed of a neighbor\nwhere she bad been spreading\ngolden grains of oomfort and cheer to\ntbe afflicted. Her sweet Christian\nlife was ppent for others. Although\nfrail of body her strength never failed\nher while in tbe work of her Master.\nDay or night she was ready to promote\nHis work and to do His bidding.",
+        "box": [
+          4908,
+          1641,
+          884,
+          1377
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      }
+    ],
+    "bodyFont": 9,
+    "columnWidth": 876,
+    "columnCenter": 5367.5,
+    "expected": [
+      [
+        "TB114",
+        "TB115",
+        "TB116"
+      ]
+    ]
+  },
+  {
+    "name": "audubon page 1 TB53",
+    "blocks": [
+      {
+        "id": "TB53",
+        "text": "To Our Correspondents",
+        "box": [
+          2270,
+          7390,
+          767,
+          128
+        ],
+        "fontSize": 22,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB54",
+        "text": "Next Tuesday is tbe Glorious Fourth\nand our Office Force from the Editor\nto the Devil wants to Celebrate.\nPlease send in your correspondence\nfor next week by not later than Monday,\nJuly 3rd.",
+        "box": [
+          2217,
+          7529,
+          873,
+          401
+        ],
+        "fontSize": 12,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB55",
+        "text": "Dicb Witte aud his mother were\ntransacting business here Tuesday.\nThey beside near the east county\nline north of Adair.",
+        "box": [
+          2224,
+          7979,
+          867,
+          216
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      }
+    ],
+    "bodyFont": 9,
+    "columnWidth": 876,
+    "columnCenter": 2656.5,
+    "expected": [
+      [
+        "TB53",
+        "TB54"
+      ]
+    ]
+  },
+  {
+    "name": "audubon page 3 TB53",
+    "blocks": [
+      {
+        "id": "TB53",
+        "text": "WAITING.",
+        "box": [
+          2527,
+          409,
+          239,
+          49
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB54",
+        "text": "lights turned very low.\nAlmost out, you know.\nNo one else In sight\nOn the particular night. ''.\nFather's gone out to the club.\nMother's upstairs tending BUB.\nSis and I are close together\nIn big Morris chair of leather.\nVery, very late at night\nSister's hair, It looks a fright.\nFather's step upon the stair,\nGet an awful bad soare.\nGrab my hat from off the hook.\nRan by father's ugly look.\nBeat it out with an my might\nBefore I got Into the flght.\nGoing back\" some time to dine.\nWhen from sis, I get a line.\nSaying things turned out all right\nOn that lovely winter's night.",
+        "box": [
+          2277,
+          509,
+          762,
+          776
+        ],
+        "fontSize": 8,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB55",
+        "text": "Rich Uncle.",
+        "box": [
+          2514,
+          1370,
+          264,
+          43
+        ],
+        "fontSize": 8,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB56",
+        "text": "Young Doctor\u2014Hello, old chap!\nDon't believe I have met you since we\nwere boys at school. You're looking\nprosperous.",
+        "box": [
+          2217,
+          1415,
+          859,
+          193
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB57",
+        "text": "Young Lawyer\u2014Yes a rich uncle\ndied two years ago and I came into\npossession of nearly $100,001).",
+        "box": [
+          2217,
+          1615,
+          861,
+          143
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB58",
+        "text": "Young Doctor\u2014Why, I wasn't aware\nyou had a rich uncle.\nYoung Lawyer\u2014Oh, he wasn't my\nuncle. He was the uncle of one of my\nclients.",
+        "box": [
+          2217,
+          1759,
+          858,
+          249
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB59",
+        "text": "Distress 8lgnal.",
+        "box": [
+          2478,
+          2092,
+          344,
+          49
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB60",
+        "text": "The elopers were stranded In Duluth,\nand It was a long walk home.\n\"We must communioate with the old\nfolks at home,\" said the pretty bride.\n\"Yes,\" echoed the bridegroom, decisively,\n\"we must ffend a wirefegi distress\ncall to your fa&er.\"\n\"Ah, the hew 'S. O. 8,-!\"\n\"No, the old '0. Q. b.'\u2014Cash Qulok,\njbaddyP'",
+        "box": [
+          2219,
+          2142,
+          862,
+          493
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      }
+    ],
+    "bodyFont": 9,
+    "columnWidth": 870,
+    "columnCenter": 2647.5,
+    "expected": [
+      [
+        "TB53",
+        "TB54"
+      ],
+      [
+        "TB55",
+        "TB56",
+        "TB57",
+        "TB58"
+      ],
+      [
+        "TB59",
+        "TB60"
+      ]
+    ]
+  },
+  {
+    "name": "demoine page 2 TB202",
+    "blocks": [
+      {
+        "id": "TB202",
+        "text": "ARRIVAL OF THE AFRICA^\nBI FFALO, Aug. 22.\nTbe Steamship Africa, from Liverpool,\nSaturday 9th inst, arrived at N. Y.\non the afternoon of Aug. 20. Owing to\nthe suspension of telegraphic snd mail\nCommunication by the storm east, \u00abre\nhave been without her sdvices until this\nmorning.",
+        "box": [
+          5967,
+          574,
+          883,
+          477
+        ],
+        "fontSize": 8,
+        "paragraphStarts": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "TB203",
+        "text": "It was rumored in Englsnd, at the\ntime that the Africa sailed, thai Hoo.\nRobert Lowe, Vice Presidsnt of the\nHoard of Trade, had left for the United\nStates with special power to settle tbo\nCentral American question.",
+        "box": [
+          5969,
+          1057,
+          878,
+          304
+        ],
+        "fontSize": 8,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB204",
+        "text": "The difficulty between ihe Alies and\nRussia is about the most importert mat*\nter of the news. It is slletlged that\nRussia has violated the treaty of Paris\nby the occupation of the Isle of Serpents,\nat the mouth of the Danube, and the non\ndelivery of Kars. In consequence of this\nmisunderstanding, the English fleet remaining\nin the east has again beea ordered\nto the Black Set.",
+        "box": [
+          5963,
+          1368,
+          884,
+          521
+        ],
+        "fontSize": 8,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB205",
+        "text": "There is nothing of importance from\nSpain. It is rnmored ihst there eftre\ndissensions in the O'Donnel eabimt,\nbut no positive informatioo\nhas",
+        "box": [
+          5963,
+          1896,
+          876,
+          205
+        ],
+        "fontSize": 8,
+        "paragraphStarts": null
+      }
+    ],
+    "bodyFont": 8,
+    "columnWidth": 895,
+    "columnCenter": 6408,
+    "expected": [
+      [
+        "TB202",
+        "TB203",
+        "TB204",
+        "TB205"
+      ]
+    ]
+  },
+  {
+    "name": "May 11 split deck: Shame belongs to the same subhead",
+    "bodyFont": 9,
+    "columnWidth": 879,
+    "columnCenter": 5374,
+    "blocks": [
+      {
+        "id": "TB99",
+        "text": "THE DOG AND THE BONE",
+        "box": [
+          4930,
+          1392,
+          865,
+          128
+        ],
+        "fontSize": 22,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB100",
+        "text": "Atlantic Not Thankful For River To\nRiver Road. Want White Pole Road.\nShows Teeth For Past Favors.",
+        "box": [
+          4932,
+          1553,
+          861,
+          191
+        ],
+        "fontSize": 13,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB101",
+        "text": "Shame!",
+        "box": [
+          5276,
+          1720,
+          178,
+          80
+        ],
+        "fontSize": 13,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB102",
+        "text": "For many years Exira has patronized\nquite liberally everything that\nAtlantic brought to her town. But\nthe unfriendly spirit exhibited toward\nExira in aiding, in every possible\nway and manner, the establishment\nof what they call tbe White\nPole Road which is being established\nfrom Dee Moines to Atlantic by\na few promoters, and in antagonism\nto the finest road in the world\nviz the soul inspiring and gliding\nRiver to River Road which comes\nthrough Des Moines, Guthrie Center\nand Exira to Atlantic is to say\nthe least to be regretted. It is not\nenough tor our fair sister city to enjoy\nmnny privileges that seem impossible\nto the Bmaller towns. But\nwhen it comes to tearing down such\nenthusiaem and tearing up such\nroads that we have spent a small\nfortune on to create and build and\nall tbe time having a feeling that\nour outlay would in some way be\nreciprocated by Atlantic and now\nto learn that \"The White Pole Road\ngrowB in favor daily and good work\nia being done now to put it in condition\nits entire, length\"\u2014Atlantic\nNews, May 9th\u2014is like the dog with\nthe bone and intimates to. Exira\nthat all we have done Is as nothing.",
+        "box": [
+          4929,
+          1842,
+          883,
+          1822
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      },
+      {
+        "id": "TB103",
+        "text": "The source of retaliation in to\nchange the map of the RIvor to River\nRoad from Exira weBt to ElkTCorn\nand down tbe beautifal Nisbnu Valley\nto Walnut and again intersect\nthe River to River Road. This will\nsave the travelers from twelve to\nfifteen miles and will pasB through\none of the richest tracts of the corn\nbelt. Walnut would spend her money\nfreely to smooth up the few bad\nspots. Elk Horn would outdo herself\nin improving any bad places\nthat may be.",
+        "box": [
+          4929,
+          3664,
+          888,
+          766
+        ],
+        "fontSize": 9,
+        "paragraphStarts": null
+      }
+    ],
+    "expected": [
+      [
+        "TB99",
+        "TB100",
+        "TB101",
+        "TB102",
+        "TB103"
+      ]
+    ]
+  }
+]

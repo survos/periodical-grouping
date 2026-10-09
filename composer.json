@@ -1,0 +1,27 @@
+{
+    "name": "survos/periodical-grouping",
+    "description": "Deterministic newspaper layout and source-preserving grouping for Harvest and Ink",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "ext-mbstring": "*",
+        "symfony/process": "^7.3 || ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Survos\\PeriodicalGrouping\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "@php tests/layout.php",
+            "@php tests/engine.php",
+            "node tests/grouping.cjs",
+            "node tests/prepare.cjs"
+        ]
+    },
+    "bin": [
+        "bin/group.php"
+    ]
+}

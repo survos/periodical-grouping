@@ -1,0 +1,81 @@
+{
+  "sn87057934-1911-06-29-ed-1": {
+    "0": {
+      "pageWidth": 6162,
+      "pageHeight": 8818,
+      "mastheadBottom": 1190,
+      "programBlockIds": [
+        "TB44",
+        "TB61",
+        "TB62",
+        "TB63",
+        "TB64",
+        "TB65",
+        "TB66",
+        "TB67",
+        "TB68",
+        "TB69",
+        "TB70"
+      ],
+      "basis": "reviewed front-page grid",
+      "reviewedGroups": [
+        {
+          "blockIds": [
+            "TB114",
+            "TB115",
+            "TB116"
+          ],
+          "type": "obituary"
+        },
+        {
+          "blockIds": [
+            "TB45",
+            "TB43",
+            "TB46",
+            "TB47",
+            "TB48"
+          ],
+          "type": "article"
+        }
+      ]
+    }
+  },
+  "sn88059762-1856-08-28-ed-1": {
+    "0": {
+      "pageWidth": 6924,
+      "pageHeight": 9231,
+      "mastheadBlockIds": [
+        "TB5",
+        "TB6",
+        "TB7",
+        "TB8",
+        "TB9",
+        "TB10",
+        "TB11",
+        "TB12",
+        "TB13",
+        "TB14",
+        "TB42",
+        "TB43",
+        "TB44",
+        "TB45",
+        "TB50",
+        "TB131",
+        "TB135",
+        "TB155",
+        "TB181",
+        "TB182",
+        "TB183",
+        "TB184"
+      ],
+      "mastheadRegion": [
+        90,
+        350,
+        6420,
+        980
+      ],
+      "mastheadNote": "Reviewed against the scan. Most of the large newspaper title is absent from the saved OCR; use the original region for evidence. Subscription and advertising panels are page furniture. Business Cards (TB46) stays in column 1.",
+      "basis": "reviewed first-page masthead; column grid remains estimated"
+    }
+  }
+}
