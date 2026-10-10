@@ -78,3 +78,19 @@ split workflow. During local development, applications install the dependency
 then use `../mono/link .` as usual. Harvest adapts existing Folio entities into
 this contract; Ink uses the same PHP package for previews. Neither application owns
 a second implementation of these grouping rules.
+
+### Fragmented front-page mastheads
+
+When title/date recognition cannot locate the masthead, page index 0 uses the
+aligned tops of substantial column-width blocks. At least three columns and
+60% of the estimated columns must agree within 1.2% of page height, with their
+starts in the upper 4–25% of the page. Nearby column headings extend the content
+boundary upward. Blocks wholly above that boundary become masthead furniture;
+blocks crossing it remain in the content stream. Reviewed profiles take priority.
+This inference preserves all source blocks and does not join continuations.
+
+The Iowa regression fixture is retained OCR/layout from The Iowa Patriot,
+1839-07-11, scan page 1 (LOC sn82014130), exported through Ink TextSheet. It covers
+fragmented title/date text, sloping column starts, boundary-crossing material,
+headline protection, and source coverage. Inference is intentionally marked as
+such; publisher/subscription panels extending down a column need separate rules.

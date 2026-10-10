@@ -46,3 +46,27 @@ if($missingTitle['mastheadBlockIds']!==['TB1','TB45','TB62']){throw new RuntimeE
 $dateOnly=LayoutAnalyzer::analyze([...$blocks,$publisherHeader[2]],6196,'dateOnly',0);
 if($dateOnly['mastheadBlockIds']!==[]){throw new RuntimeException('Date alone became masthead');}
 echo "Textsheet layout checks passed\n";
+
+// Real fragmented Iowa front page: body columns establish the header boundary.
+$iowa=json_decode(file_get_contents(__DIR__.'/fixtures/iowa-front-page.json'),true,flags:JSON_THROW_ON_ERROR);
+$analyzeIowa=static fn(array $blocks,int $page=0) => LayoutAnalyzer::analyze($blocks,$iowa['width'],$iowa['issueId'],$page,[],null,$iowa['height']);
+$original=$iowa['blocks'];
+$geometry=$analyzeIowa($original);
+$expected=['TB1','TB2','TB3','TB17','TB18','TB110','TB170','TB171','TB219','TB235','TB241','TB242','TB243','TB244','TB245','TB246','TB247'];
+if($geometry['mastheadBlockIds']!==$expected || $geometry['mastheadRegion']!=[0,0,$iowa['width'],772.0]){throw new RuntimeException('Fragmented Iowa masthead was not separated at aligned column tops');}
+if($original!==$iowa['blocks'] || count($geometry['slots'])!==count($original)){throw new RuntimeException('Geometry inference changed source evidence');}
+if(in_array('TB19',$geometry['mastheadBlockIds'],true)){throw new RuntimeException('Boundary-crossing block was swallowed');}
+if($analyzeIowa($original,1)['mastheadBlockIds']!==[]){throw new RuntimeException('Geometric header leaked to an interior page');}
+$heading=['id'=>'opening-heading','text'=>'A new story','box'=>[1082,735,948,25],'fontSize'=>20];
+$protected=$analyzeIowa([...$original,$heading]);
+if(in_array('opening-heading',$protected['mastheadBlockIds'],true) || $protected['mastheadRegion'][3]!==735.0){throw new RuntimeException('Attached editorial headline was swallowed');}
+$staggered=array_map(static function($b) use($geometry) {
+    $b['box'][1]+=$geometry['slots'][$b['id']]['column']*400;
+    return $b;
+},$original);
+if($analyzeIowa($staggered)['mastheadBlockIds']!==[]){throw new RuntimeException('Unaligned columns established a false masthead');}
+$prepared=Survos\PeriodicalGrouping\PageGrouper::prepare($iowa['issueId'],[...$iowa,'analysis'=>$geometry]);
+foreach($prepared['groups'] as $group){
+    if(array_intersect($expected,$group['blockIds'])){throw new RuntimeException('Masthead fragment entered an editorial group');}
+}
+echo "Iowa geometric masthead, opening protection, later-page and source coverage checks passed\n";

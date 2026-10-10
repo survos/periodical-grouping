@@ -56,6 +56,16 @@ final class LayoutAnalyzer
                 break;
             }
         }
+        if ($pageIndex === 0 && !$reviewed && $mastheadStatus === 'not yet located' && $pageHeight !== null) {
+            $bottom = self::alignedColumnTop($blocks, $body, $centers, $width, $pageHeight);
+            if ($bottom !== null) {
+                $masthead = array_column(array_filter($blocks, static fn($b) => $b['box'][1]+$b['box'][3] <= $bottom), 'id');
+                if ($masthead !== []) {
+                    $mastheadRegion = [0, 0, $pageWidth, $bottom];
+                    $mastheadStatus = 'inferred: aligned column tops';
+                }
+            }
+        }
         if ($pageIndex === 0 && !$reviewed && $mastheadStatus === 'not yet located' && $measuredBottom !== null) {
             // No hand review and no text-based inference: take the masthead harvest measured from the OCR geometry.
             // The measure finds the title's type; the nameplate usually continues below it (tagline, date strip), often as one
@@ -83,6 +93,47 @@ final class LayoutAnalyzer
             'mastheadNote' => $reviewed ? ($review['mastheadNote'] ?? '') : '',
             'reviewedGroups' => $reviewed ? ($review['reviewedGroups'] ?? []) : [],
             'programBlockIds' => $program, 'slots' => $slots];
+    }
+
+    /** Find the upper content boundary without needing legible masthead text. */
+    private static function alignedColumnTop(array $blocks, array $body, array $centers, float $width, float $height): ?float
+    {
+        if (count($centers) < 3) { return null; }
+        $tops = [];
+        foreach ($centers as $column => $center) {
+            foreach ($body as $block) {
+                [$x, $y, $w, $h] = $block['box'];
+                if ($w < $width*.65 || $w > $width*1.35 || abs($x+$w/2-$center) > $width*.3) { continue; }
+                $tops[$column] = min($tops[$column] ?? INF, $y);
+            }
+        }
+        // A majority of distinct columns must start together, near the page top.
+        $required = max(3, (int) ceil(count($centers)*.6));
+        $best = [];
+        asort($tops);
+        foreach ($tops as $top) {
+            if ($top < $height*.04 || $top > $height*.25) { continue; }
+            $aligned = array_filter($tops, static fn($y) => $y >= $top && $y <= $top+$height*.012);
+            if (count($aligned) > count($best)) { $best = $aligned; }
+        }
+        if (count($best) < $required) { return null; }
+        $boundary = (float) min($best);
+        // A short headline immediately above body belongs to the column too.
+        // Walk upward through attached blocks; never swallow a column opening.
+        foreach ($best as $column => $top) {
+            do {
+                $previous = $top;
+                foreach ($blocks as $block) {
+                    [$x, $y, $w, $h] = $block['box'];
+                    if ($w < $width*.35 || $w > $width*1.35
+                        || abs($x+$w/2-$centers[$column]) > $width*.3) { continue; }
+                    $gap = $top-($y+$h);
+                    if ($y < $top && $gap >= 0 && $gap <= $width*.06) { $top = $y; }
+                }
+            } while ($top < $previous);
+            $boundary = min($boundary, $top);
+        }
+        return $boundary >= $height*.04 ? $boundary : null;
     }
 
     private static function median(array $values): float
