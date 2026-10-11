@@ -155,7 +155,57 @@ final class ColumnGrouper
             }
         }
         unset($group);
-        return $result;
+        return self::absorb($result, $options);
+    }
+
+    /** Vertical gap, in lines of the block above, that ends a run. */
+    private const float RUN_BREAK_LINES = 3.0;
+    /** Groups a leftover block may join; saved and reviewed memberships are someone else's decision. */
+    private const array OPEN_BASES = ['proposed opening', 'column run'];
+
+    /**
+     * Errs toward over-grouping: a few oversized groups are easier to read and navigate than dozens
+     * of one-block fragments, even when a group takes in an unrelated block.
+     *
+     * A leftover block (no basis) joins the proposal directly above it in the column; with none
+     * above, it starts a 'column run' with the leftovers below it. A run ends at a vertical gap
+     * wider than RUN_BREAK_LINES lines (a section break, or a drawn heading OCR never captured),
+     * at a block that reads as a heading, and at a saved or reviewed group. A run that collects
+     * only one block stays unassigned.
+     */
+    private static function absorb(array $groups, array $options): array
+    {
+        $font = $options['bodyFont'] ?? 9;
+        $width = $options['columnWidth'] ?? 900;
+        $center = $options['columnCenter'] ?? 450;
+        $out = [];
+        foreach ($groups as $group) {
+            $previous = $out === [] ? null : $out[array_key_last($out)];
+            if ($group['basis'] !== null || $previous === null) { $out[] = $group; continue; }
+            $block = $group['blocks'][0];
+            $above = $previous['blocks'][array_key_last($previous['blocks'])];
+            $gap = $block['box'][1] - $above['box'][1] - $above['box'][3];
+            // The smaller line height: a block OCR returned without line breaks reads as one tall line.
+            $line = min(self::lineHeight($above), self::lineHeight($block));
+            $joins = $gap <= $line * self::RUN_BREAK_LINES && self::letters($block['text']) >= 4
+                && self::lead($block, $font, $width, $center) === null;
+            if ($joins && in_array($previous['basis'], self::OPEN_BASES, true)) {
+                $index = array_key_last($out);
+                $out[$index]['blocks'][] = $block;
+                $out[$index]['roles'][] = self::role($block, 'body');
+                continue;
+            }
+            if ($joins && $previous['basis'] === null) {
+                $first = $previous['blocks'][0];
+                $out[array_key_last($out)] = ['blocks' => [$first, $block], 'basis' => 'column run',
+                    'title' => self::compact($first['text']), 'type' => null, 'article' => null,
+                    'roles' => [self::role($first, 'body'), self::role($block, 'body')],
+                    'evidence' => 'Adjacent loose blocks in one column, grouped rather than left as fragments'];
+                continue;
+            }
+            $out[] = $group;
+        }
+        return $out;
     }
 
     public static function markdown(array $group): string
